@@ -1,3 +1,14 @@
+//
+// Bootstrap Variable Overrides
+//
+
+// Navbar
+$navbar-inverse-bg: #415E9B;
+$navbar-inverse-color: white;
+$navbar-inverse-link-color: white;
+$navbar-height: 42px;
+
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
