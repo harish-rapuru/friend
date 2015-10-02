@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"><%= render partial: 'users/side_menu' %></div>
+    <div class="col-md-6">
+      <% if @user == current_user %>
+        <%= render partial: 'posts/new' %>
+      <% end %>
+      <% if @user_posts.count > 0 %>
+        <% @user_posts.each do |post| %>
+          <%= render partial: 'posts/show', locals: {post: post} %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

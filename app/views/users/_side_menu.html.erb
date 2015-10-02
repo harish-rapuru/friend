@@ -1,0 +1,12 @@
+<ul class="list-group">
+  <li class="list-group-item"><h4><%= @user.full_name %></h4></li>
+  
+  <% if @friends.count > 0 %>
+    <li class="list-group-item">Friends</li>
+    <% @friends.each do |friend| %>
+      <li class="list-group-item"><%= link_to friend.full_name, user_path(friend) %></li>
+    <% end %>
+  <% else %>
+    <li class="list-group-item"><%= link_to 'Find Friends', find_friends_path %></li>
+  <% end %>
+</ul>
