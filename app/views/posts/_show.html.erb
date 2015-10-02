@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to( post.user.full_name, user_path(post.user) ) %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p><%= post.body %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <span class="counts"><%= post.likers_count %> Likes &nbsp;&nbsp; <%= post.comments.count %> Comments</span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <% if current_user.likes?(post) %>
+          <%= link_to unlike_post_path(post_id: post.id), method: :post do %>
+            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
+          <% end %>
+        <% else %>
+          <%= link_to like_post_path(post_id: post.id), method: :post, class: 'like_link' do %>
+            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render partial: 'comments/form', locals: {post: post} %>
+      </div>
+    </div>
+    <% if post.comments.count > 0 %>
+      <hr>
+      <% post.comments.each do |comment| %>
+        <div class="row">
+          <div class="col-md-12">
+            <%= link_to comment.user.full_name, user_path(comment.user) %> <%= comment.body %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
