@@ -53,5 +53,6 @@ group :test do
   gem 'minitest-rails'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'minitest-ar-assertions', :require => 'minitest_activerecord_assertions'
 end
 
