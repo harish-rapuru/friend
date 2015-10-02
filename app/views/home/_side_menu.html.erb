@@ -12,6 +12,6 @@
       <li class="list-group-item"><%= link_to friend.full_name, user_path(friend) %></li>
     <% end %>
   <% else %>
-    <li class="list-group-item"><%= link_to 'Find Friends', '' %></li>
+    <li class="list-group-item"><%= link_to 'Find Friends', find_friends_path %></li>
   <% end %>
 </ul>

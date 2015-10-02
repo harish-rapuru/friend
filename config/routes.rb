@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   post 'posts/like' => 'posts#like', as: 'like_post'
   post 'posts/unlike' => 'posts#unlike', as: 'unlike_post'
   resources :comments, only: [:create]
-
+  resources :friendships, only: [:create, :destroy, :update]
+  get 'find_friends' => 'friends#find' 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

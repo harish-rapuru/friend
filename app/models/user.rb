@@ -25,8 +25,26 @@ class User < ActiveRecord::Base
     friendships + inverse_friendships
   end
 
+  def all_friendship_users
+    users = []
+    all_friendships.each do |friendship|
+      users << friendship.user
+      users << friendship.friend 
+    end
+    return users.uniq
+  end
+
   def full_name
-    "#{first_name} #{last_name}"
+    case
+    when (first_name && last_name) 
+      "#{first_name} #{last_name}"
+    when first_name
+      first_name
+    when last_name
+      last_name
+    else 
+      email
+    end
   end
 
   def feed_posts
@@ -40,5 +58,9 @@ class User < ActiveRecord::Base
 
     posts = (friends_posts + my_posts)
     return posts.sort_by(&:created_at).reverse!
+  end
+
+  def pending_friendships
+    inverse_friendships.pending
   end
 end

@@ -1,0 +1,16 @@
+<ul class="list-group">
+  <% if @pending_friendships.count >  0 %>
+    <li class="list-group-item">Friend Requests</li>
+    <% @pending_friendships.each do |friendship| %>
+      <li class="list-group-item">
+        <%= link_to friendship.user.full_name, user_path(friendship.user) %>
+        <%= link_to friendship_path(friendship), method: :patch do %>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <% end %>
+        <%= link_to friendship_path(friendship), method: :delete do %>
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
