@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :home, only: [:index]
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
   resources :posts, only: [:create]
   post 'posts/like' => 'posts#like', as: 'like_post'
   post 'posts/unlike' => 'posts#unlike', as: 'unlike_post'

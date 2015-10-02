@@ -2,9 +2,16 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12">
-        <%= link_to( post.user.full_name, user_path(post.user) ) %>
+        <div class="post_header">
+          <%= image_tag post.user.avatar.url, class: 'img-square', height: 40 %>
+        </div>
+        <div>
+           <%= link_to( post.user.full_name, user_path(post.user) ) %><br>
+          <%= time_ago_in_words(post.created_at) %> ago
+        </div>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="col-md-12">
         <p><%= post.body %></p>
