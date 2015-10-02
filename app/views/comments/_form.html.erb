@@ -1,0 +1,7 @@
+<%= form_for @comment, html: { class: 'form-inline'} do |f| %>
+  <div class="form-group">
+    <%= f.text_field :body, class: 'form-control inline_comment', placeholder: "Write a comment..."  %>
+    <%= f.hidden_field :post_id, value: post.id %>
+  </div>
+  <%= f.submit 'Comment', class: 'btn btn-primary' %>
+<% end %>
