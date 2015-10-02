@@ -1,28 +1,11 @@
-== README
+== Fakebook (a facebook clone in rails)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fakebook (a facebook clone in rails)
 
-Things you may want to cover:
+Setup
+* clone repo
+* bundle install
+* rake db:migrate
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Notes
+* The keys are checked in to the repo, if you intend to deploy this to production, generate new keys.
