@@ -1,1 +1,14 @@
-Home
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"><%= render partial: 'home/side_menu' %></div>
+    <div class="col-md-6">
+      <%= render partial: 'posts/new' %>
+      <% if @feed_posts.count > 0 %>
+        <% @feed_posts.each do |post| %>
+          <%= render partial: 'posts/show', locals: {post: post} %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   acts_as_liker
 
   has_many :posts
+  has_many :comments
 
   has_many :friendships
   has_many :friends, -> { Friendship.accepted }, :through => :friendships
@@ -26,5 +27,18 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def feed_posts
+    friends_posts = []
+    my_posts = posts
+    all_friends.each do |friend|
+      friend.posts.each do |post|
+        friends_posts << post
+      end
+    end
+
+    posts = (friends_posts + my_posts)
+    return posts.sort_by(&:created_at).reverse!
   end
 end

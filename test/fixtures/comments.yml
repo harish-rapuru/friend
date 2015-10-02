@@ -2,11 +2,12 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  body: MyText
-  references: 
-  references: 
+  body: This is a test comment.
+  user: one
+  post: one 
 
 two:
-  body: MyText
-  references: 
-  references: 
+  body: This is another test comment.
+  user: two
+  post: two 
+ 

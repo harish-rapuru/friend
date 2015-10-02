@@ -2,9 +2,11 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  relations: 
+  user: user(:one)
+  friend: two 
   accepted: false
 
 two:
-  relations: 
-  accepted: false
+  user: user(:one)
+  friend: two
+  accepted: true

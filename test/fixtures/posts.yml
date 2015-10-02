@@ -2,9 +2,9 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  body: MyString
-  user: user(one)
+  body: This is a test post.
+  user: one
 
 two:
-  body: MyString
-  user: user(one)
+  body: This is another test post.
+  user: two
