@@ -47,5 +47,7 @@ end
 
 group :test do
   gem 'minitest-rails'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
